@@ -1,5 +1,6 @@
 let steveImgEl = document.getElementById("steve-img");
 let alexImgEl = document.getElementById("alex-img");
+let villageImgEl = document.getElementById("village-img");
 let fishBtnEl = document.getElementById("fish-btn");
 let imgResultEl = document.getElementById("img-result");
 let numCodEl = document.getElementById("num-cod");
@@ -13,20 +14,31 @@ let numSalmon = 0;
 let numTropical = 0;
 let NumPuffer1 = 0;
 
+villageImgEl.addEventListener("click", selectVillage);
 steveImgEl.addEventListener("click", selectSteve);
 alexImgEl.addEventListener("click", selectAlex);
 fishBtnEl.addEventListener("click", fishOnce);
 
-function selectSteve() {
-  steveImgEl.classList.add("active");
+function selectVillage() {
+  villageImgEl.classList.add("active");
+  steveImgEl.classList.remove("active");
   alexImgEl.classList.remove("active");
   character = "Steve";
 }
+
+function selectSteve() {
+  steveImgEl.classList.add("active");
+  alexImgEl.classList.remove("active");
+  villageImgEl.classList.remove("active");
+  character = "Steve";
+}
+
 
 function selectAlex() {
   console.log("alex");
   steveImgEl.classList.remove("active");
   alexImgEl.classList.add("active");
+  villageImgEl.classList.remove("active");
 
   character = "Alex";
 }
@@ -70,5 +82,5 @@ function fishOnce() {
       imgResultEl.src = "img/Pufferfish.png";
       numPufferfishEl.innerHTML = NumPuffer1;
     }
-  }
+  } 
 }
